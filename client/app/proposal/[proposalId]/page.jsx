@@ -7,7 +7,6 @@ import Link from "next/link";
 import { FiCopy } from "react-icons/fi";
 import logo from "../../../public/images/logo.png";
 
-
 const proposalPage = ({ params: { proposalId } }) => {
   const [selectedItems, setSelectedItems] = useState([null, null, null, null]);
   const [isScrollingUp, setIsScrollingUp] = useState(false);
@@ -23,7 +22,6 @@ const proposalPage = ({ params: { proposalId } }) => {
   const [inputValues, setInputValues] = useState(initialValues);
   const [showNotification, setShowNotification] = useState(false);
   const [projects, setProjects] = useState([]);
-
 
   const handleCopyClick = (index) => {
     const valueToCopy = inputValues[index].value;
@@ -41,8 +39,6 @@ const proposalPage = ({ params: { proposalId } }) => {
       return newInputValues;
     });
   };
-
- 
 
   const handleFileChange = (index, files) => {
     if (files && files.length > 0) {
@@ -87,8 +83,6 @@ const proposalPage = ({ params: { proposalId } }) => {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-
-   
   }, []);
 
   useEffect(() => {
@@ -116,8 +110,6 @@ const proposalPage = ({ params: { proposalId } }) => {
       }
     }
 
-    
-
     fetchFormData(proposalId);
   }, [proposalId]);
 
@@ -125,16 +117,16 @@ const proposalPage = ({ params: { proposalId } }) => {
   //   return <div>Loading...</div>;
   // }
 
-useEffect(() => {
-  if (formData) {
-    setInputValues((prevInputValues) =>
-      prevInputValues.map((input) => {
-        const value = formData[input.key];
-        return { ...input, value };
-      })
-    );
-  }
-}, [formData]);
+  useEffect(() => {
+    if (formData) {
+      setInputValues((prevInputValues) =>
+        prevInputValues.map((input) => {
+          const value = formData[input.key];
+          return { ...input, value };
+        })
+      );
+    }
+  }, [formData]);
 
   return (
     <>
@@ -254,7 +246,7 @@ useEffect(() => {
                   </p>
                   <div className="flex  space-x-[40px] justify-center">
                     <div className="">
-                      <Link href="/proposal" legacyBehavior passHref>
+                      <Link href="#" legacyBehavior passHref>
                         <a className="text-center text-black font-semibold lg:py-[10px] cursor-pointer p-2 lg:px-[30px] bg-[#00EF8B] text-[20px] lg:text-[30px]">
                           Fund
                         </a>
