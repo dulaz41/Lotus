@@ -147,8 +147,8 @@ const Project: React.FC = () => {
                     </>
                   ))
                 ) : (
-                  <p className="text-center text-black text-3xl font-semibold">
-                    No funded proposals yet
+                  <p className="text-center text-zinc-700 text-3xl font-semibold">
+                    No Funded proposals yet
                   </p>
                 )}
               </div>

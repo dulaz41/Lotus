@@ -143,7 +143,7 @@ const SubmitProposal: React.FC = () => {
         // const Contract = new ethers.Contract(contractAddr, abi, signers);
 
         const response = await fetch(
-          `https://opgrant.vercel.app/proposal/${address}`,
+          `https://opgrant.vercel.app/proposal`,
           {
             method: "POST",
             body: JSON.stringify(proposalData),

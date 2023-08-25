@@ -104,7 +104,10 @@ const Project: React.FC = () => {
                 {projects.map((project) => (
                   <div key={project.projectName}>
                     <div key={project.id} className="flex justify-between">
-                      <div className="space-x-6 flex items-center">
+                      <div
+                        key={project.id}
+                        className="space-x-6 flex items-center"
+                      >
                         <Image
                           src={user}
                           alt=""
@@ -119,7 +122,10 @@ const Project: React.FC = () => {
                           </p>
                         </div>
                       </div>
-                      <div className="flex flex-col lg:pt-[18px] pt-[6px] gap-y-4">
+                      <div
+                        key={project.id}
+                        className="flex flex-col lg:pt-[18px] pt-[6px] gap-y-4"
+                      >
                         <p className=" text-black lg:text-[24px] text-[12px] text-center font-semibold ">
                           $ETH <span>{project.proposalAmount}</span>{" "}
                         </p>
@@ -136,8 +142,11 @@ const Project: React.FC = () => {
                         {project.description}
                       </p>
                     </div>
-                    
-                    <div className="lg:w-[110%] w-[115%]   -ml-10 -mr-0 my-4  bg-white h-[30px]"></div>
+
+                    <div
+                      key={project.id}
+                      className="lg:w-[110%] w-[115%]   -ml-10 -mr-0 my-4  bg-white h-[30px]"
+                    ></div>
                   </div>
                 ))}
               </div>

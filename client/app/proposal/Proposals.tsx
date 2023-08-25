@@ -99,54 +99,63 @@ const Proposals = () => {
           <div className="flex flex-col lg:mt-[12px] mt-[18px] bg-[#BCD7CB]   gap-y-[12px]">
             <div className="lg:h-[90%] w-[111.2%] mr-0 ">
               <div className="lg:h-[90%] w-[90%] border-[2px]  lg:px-[30px] lg:py-[20px] justify-between  border-[#00EF8B] p-[8px] ">
-                {projects.map((project) => (
-                  <div key={project.projectName} className="mb-4">
-                    <div key={project.id} className="flex justify-between ">
-                      <div className="space-x-6 flex items-center">
-                        <Image
-                          src={user}
-                          alt=""
-                          className="lg:h-[120px] mt-1 h-[50px] w-[50px] lg:w-[120px]"
-                        />
-                        <div className="flex gap-y-[10px] flex-col">
-                          <h3 className="text-[#FFFFFF] lg:text-[40px] text-[18px] font-semibold">
-                            {project.name}
-                          </h3>
-                          <p className=" text-[#626262] lg:text-[30px] text-[16px] text-center font-semibold ">
-                            {project.message}
+                {projects.length > 0 &&
+                projects.some((project) => project.funded === "") ? (
+                  projects.map((project) => (
+                    <div key={project.id}>
+                      <div key={project.id}>
+                        <div className="flex justify-between">
+                          <div className="space-x-6 flex items-center">
+                            <Image
+                              src={user}
+                              alt=""
+                              className="lg:h-[120px] mt-1 h-[50px] w-[50px] lg:w-[120px]"
+                            />
+                            <div className="flex gap-y-[10px] flex-col">
+                              <h3 className="text-[#FFFFFF] lg:text-[40px] text-[18px] font-semibold">
+                                {project.name}
+                              </h3>
+                              <p className=" text-[#626262] lg:text-[30px] text-[16px] text-center font-semibold ">
+                                {project.projectName}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="flex flex-col lg:pt-[18px] pt-[6px] gap-y-4">
+                            <p className=" text-black lg:text-[24px] text-[12px] text-center font-semibold ">
+                              $ETH <span>{project.proposalAmount}</span>{" "}
+                            </p>
+                            <p className=" text-[#626262] lg:text-[30px] text-[14px] text-center font-semibold ">
+                              {project.funded}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="my-[43px] lg:h-[116px] lg:w-[915px]">
+                          <p className="text-[#303030] lg:text-2xl text-sm">
+                            {project.coverDescription}
                           </p>
                         </div>
+                        <div
+                          key={project.id}
+                          className="flex justify-end  items-end"
+                        >
+                          <button
+                            className="mb-3"
+                            onClick={() => handleViewClick(project.proposalId)}
+                          >
+                            <a className="text-center text-black font-semibold lg:py-[10px] cursor-pointer p-2 lg:px-[30px] bg-[#00EF8B] hover:bg-[#44d196] text-[20px] lg:text-[30px]">
+                              View
+                            </a>
+                          </button>
+                        </div>
+                        <div className="lg:w-[109%] w-[124%]   -ml-10 -mr-0 my-4  bg-white h-[30px]"></div>
                       </div>
-                      <div className="flex flex-col lg:pt-[18px] pt-[6px] gap-y-4">
-                        <p className=" text-black lg:text-[24px] text-[12px] text-center font-semibold ">
-                          $ETH <span>{project.proposalAmount}</span>{" "}
-                        </p>
-                      </div>
                     </div>
-                    <div
-                      key={project.id}
-                      className="my-[43px] lg:h-[116px] lg:w-[915px]"
-                    >
-                      <p className="text-[#303030] lg:text-2xl text-sm">
-                        {project.description}
-                      </p>
-                    </div>
-                    <div
-                      key={project.id}
-                      className="flex justify-end  items-end"
-                    >
-                      <button
-                        className="mb-3"
-                        onClick={() => handleViewClick(project.proposalId)}
-                      >
-                        <a className="text-center text-black font-semibold lg:py-[10px] cursor-pointer p-2 lg:px-[30px] bg-[#00EF8B] hover:bg-[#44d196] text-[20px] lg:text-[30px]">
-                          View
-                        </a>
-                      </button>
-                    </div>
-                    <div className="lg:w-[109%] w-[124%]   -ml-10 -mr-0 my-4  bg-white h-[30px]"></div>
-                  </div>
-                ))}
+                  ))
+                ) : (
+                  <p className="text-center text-zinc-700 text-3xl font-semibold">
+                    No Reviewed proposals yet
+                  </p>
+                )}
               </div>
             </div>
           </div>
